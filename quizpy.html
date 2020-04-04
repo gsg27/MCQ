@@ -1,0 +1,180 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+background-color:orange;
+}
+h1{
+font-family:calibri;
+color: purple;
+
+}
+ #sub:disabled:hover {
+    cursor:not-allowed
+ }
+label{
+font-size: 20px;
+}
+input[type=radio]:checked + label {
+  color: #f00;
+}
+input[type=radio]:disabled:hover{
+cursor:not-allowed
+}
+</style>
+</head>
+<body>
+<h1>
+<b><i>MCQ</i></b>
+</h1>
+<hr>
+<h2>Qn1: Who is the current Prime Minister of India?</h2>
+    <p>
+        <input type="radio" name="qn1" id="11" value="A"></input>
+        <label for="11" id="labelfor11">A) Jawarlal Nehru</label><br>
+        <input type="radio" name="qn1" id="12" value="B"></input>
+        <label for="12" id="labelfor12">B) Narender Modi</label><br>
+        <input type="radio" name="qn1" id="13" value="C"></input>
+        <label for="13" id="labelfor13">C) Lal Bhadur Sastri</label><br>
+        <input type="radio" name="qn1" id="14" value="D"></input>
+        <label for="14" id="labelfor14">D) Indira Gandhi</label><br>
+        </p>
+        <hr>
+        <h2>Qn2: Which of the following is the national animal of India?</h2>
+    <p>
+        <input type="radio" name="qn2" id="21" value="A"></input>
+        <label for="21" id="labelfor21">A) Lion</label><br>
+        <input type="radio" name="qn2" id="22" value="B"></input>
+        <label for="22" id="labelfor22">B) Tiger</label><br>
+        <input type="radio" name="qn2" id="23" value="C"></input>
+        <label for="23" id="labelfor23">C) Elephant</label><br>
+        <input type="radio" name="qn2" id="24" value="D"></input>
+        <label for="24" id="labelfor24">D) Rhinoceros</label><br>
+        </p>
+        <hr>
+        <h2>Qn3: How many days are there in a Leap year?</h2>
+    <p>
+        <input type="radio" name="qn3" id="31" value="A"></input>
+        <label for="31" id="labelfor31">A) 360</label><br>
+        <input type="radio" name="qn3" id="32" value="B"></input>
+        <label for="32" id="labelfor32">B) 365</label><br>
+        <input type="radio" name="qn3" id="33" value="C"></input>
+        <label for="33" id="labelfor33">C) 366</label><br>
+        <input type="radio" name="qn3" id="34" value="D"></input>
+        <label for="34" id="labelfor34">D) 367</label><br>
+        </p>
+        <hr>
+        <h2>Qn4: Which crop is sown on the largest area in India?</h2>
+    <p>
+        <input type="radio" name="qn4" id="41" value="A"></input>
+        <label for="41" id="labelfor41">A) Rice</label><br>
+        <input type="radio" name="qn4" id="42" value="B"></input>
+        <label for="42" id="labelfor42">B) Wheat</label><br>
+        <input type="radio" name="qn4" id="43" value="C"></input>
+        <label for="43" id="labelfor43">C) Sugarcane</label><br>
+        <input type="radio" name="qn4" id="44" value="D"></input>
+        <label for="44" id="labelfor44">D) Maize</label><br>
+        </p>
+        <hr>
+        
+        <br> 
+        <button class='btn btn-outline-success' id='sub' onclick="RadioValue()">Submit</button>
+        
+	<p id="dd" style="font-size:30;"></p>
+	<script>
+        var ans = ["B","B","C","A",]
+	
+
+
+
+var op =[];
+var score=0;
+ function RadioValue() { 
+            
+            var ele = document.getElementsByTagName('input'); 
+              
+            for(i = 0; i < ele.length; i++) { 
+                  
+                if(ele[i].type="radio") { 
+                  
+                    if(ele[i].checked) {
+                        op.push(ele[i].value);
+                        
+                }
+                else{
+			op.push('0');
+		}
+            } 
+        ele[i].disabled = true;
+		} 
+
+a=0;
+b=1;
+c=2;
+d=3;
+	for(i=0;i<ans.length;i++)
+	{	
+		if( ans[i]==op[a]){
+		score=score+1;}
+		else if( ans[i]==op[b]){
+		score=score+1;}
+		else if( ans[i]==op[c]){
+		score=score+1;}
+		else if( ans[i]==op[d]){
+		score=score+1;}
+		a=a+4;
+		b=b+4;
+		c=c+4;
+		d=d+4;
+		}
+document.getElementById("dd").innerHTML =  'Score:' + score;
+document.getElementById("sub").disabled = true;
+getans();	
+}
+function getans(){
+
+for(i=1;i<ans.length+1;i++)
+	{	;
+		for(j=1;j<5;j++){
+		
+		
+		if(ans[i-1]=='A')
+		{
+			x=document.getElementById(`labelfor${i}1`);
+            
+			x.style.color='green';
+            x.style.fontSize ='30';
+			
+		}
+		else if(ans[i-1]=='B')
+		{
+			x=document.getElementById(`labelfor${i}2`);
+            x.style.fontSize ='30';
+			x.style.color='green';
+			
+		}
+		else if(ans[i-1]=='C')
+		{
+			x=document.getElementById(`labelfor${i}3`);
+            x.style.fontSize ='30';
+			x.style.color='green';
+			
+		}
+		else if(ans[i-1]=='D')
+		{
+			x=document.getElementById(`labelfor${i}4`);
+            x.style.fontSize ='30';
+			x.style.color='green';
+			
+		}
+		
+		
+		}
+	}
+		
+		
+}
+
+</script>
+</body></html>
